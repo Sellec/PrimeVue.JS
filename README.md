@@ -1,5 +1,5 @@
 # PrimeVue.JS
-A complete bundle with all primevue components, quill and primeicons registered with specific 'pvl-' tags to use in with common html code.
+A complete bundle with all [PrimeVue](https://github.com/primefaces/primevue) components, [PrimeIcons](https://github.com/primefaces/primeicons) and [Quill](https://github.com/quilljs/quill) registered with specific 'pvl-' tags to use in with common html code.
 
 Use `npm primevuelibrary` to install this bundle.
 Include it into your project with this:
