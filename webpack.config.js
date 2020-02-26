@@ -87,7 +87,6 @@ module.exports = {
         new CleanWebpackPlugin(),
         new VueLoaderPlugin(),
         new CopyPlugin([
-            'node_modules/vue/dist/vue.min.js',
             { from: 'node_modules/primevue/resources/themes/', to: 'themes/' },
             'node_modules/quill/dist/quill.min.js'
         ]),
