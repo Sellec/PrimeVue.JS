@@ -19,11 +19,11 @@
                 <pvl-dropdown value="1" :options="[{val:'1', text:'1'}, {val:'2', text:'2'}]" option-value="val" option-label="text"></pvl-dropdown>
             </pvl-tabpanel>
             <pvl-tabpanel header="TabView">
-                Tab 1 activated  <pvl-inputswitch v-model="tabview.tab1active"></pvl-inputswitch><br />
-                Tab 3 visibility <pvl-inputswitch v-model="tabview.tab3visible"></pvl-inputswitch><br />
+                Tab 2 activated  <pvl-inputswitch v-model="tabview.tab2active"></pvl-inputswitch><br />
+                Tab 3 visibille <pvl-inputswitch v-model="tabview.tab3visible"></pvl-inputswitch><br />
                 <pvl-tabview>
-                    <pvl-tabpanel header="Tab 1" :active.sync="tabview.tab1active">Tab 1 content</pvl-tabpanel>
-                    <pvl-tabpanel header="Tab 2" :active="tabview.tab2active">Tab 2 content</pvl-tabpanel>
+                    <pvl-tabpanel header="Tab 1" :active="tabview.tab1active">Tab 1 content</pvl-tabpanel>
+                    <pvl-tabpanel header="Tab 2" :active.sync="tabview.tab2active">Tab 2 content</pvl-tabpanel>
                     <pvl-tabpanel header="Tab 3" :hidden="!tabview.tab3visible">Tab 3 content</pvl-tabpanel>
                 </pvl-tabview>
             </pvl-tabpanel>
@@ -47,8 +47,8 @@
                     ]
                 },
                 tabview: {
-                    tab1active: false,
-                    tab2active: true,
+                    tab1active: true,
+                    tab2active: false,
                     tab3visible: false
                 }
             },
