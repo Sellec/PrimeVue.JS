@@ -6,15 +6,28 @@
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
     <link rel="icon" href="favicon.ico">
     <title>VuejsApp1</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
     <script src="quill.min.js"></script>
-    <script src="vue.min.js"></script>
-    <script src="primevuelibrary.min.js"></script>
-    <link rel="stylesheet" href="primevuelibrary.min.css" />
+    <script src="primevuelibrary.js"></script>
+    <link rel="stylesheet" href="primevuelibrary.css" />
     <link rel="stylesheet" href="themes/nova-light/theme.css" />
 </head>
 <body>
     <div id="app">
-        <pvl-dropdown value="1" :options="[{val:'1', text:'1'}, {val:'2', text:'2'}]" option-value="val" option-label="text"></pvl-dropdown>
+        <pvl-tabview>
+            <pvl-tabpanel header="Dropdown">
+                <pvl-dropdown value="1" :options="[{val:'1', text:'1'}, {val:'2', text:'2'}]" option-value="val" option-label="text"></pvl-dropdown>
+            </pvl-tabpanel>
+            <pvl-tabpanel header="TabView">
+                Tab 1 activated  <pvl-inputswitch v-model="tabview.tab1active"></pvl-inputswitch><br />
+                Tab 3 visibility <pvl-inputswitch v-model="tabview.tab3visible"></pvl-inputswitch><br />
+                <pvl-tabview>
+                    <pvl-tabpanel header="Tab 1" :active.sync="tabview.tab1active">Tab 1 content</pvl-tabpanel>
+                    <pvl-tabpanel header="Tab 2" :active="tabview.tab2active">Tab 2 content</pvl-tabpanel>
+                    <pvl-tabpanel header="Tab 3" :hidden="!tabview.tab3visible">Tab 3 content</pvl-tabpanel>
+                </pvl-tabview>
+            </pvl-tabpanel>
+        </pvl-tabview>
     </div>
 
     <script type="text/javascript">
@@ -32,6 +45,11 @@
                         { val: "3", text: "3" },
                         { val: "4", text: "4" }
                     ]
+                },
+                tabview: {
+                    tab1active: false,
+                    tab2active: true,
+                    tab3visible: false
                 }
             },
             mounted() {

@@ -45,13 +45,10 @@ module.exports = {
     },
     module: {
         rules: [
-            // это будет применяться к файлам `.vue`
             {
                 test: /\.vue$/,
                 loader: 'vue-loader'
             },
-            // это будет применяться к файлам `.js`
-            // А ТАКЖЕ к секциям `<script>` внутри файлов `.vue`
             {
                 test: /\.m?js$/,
                 exclude: /(node_modules|bower_components)/,
@@ -62,12 +59,9 @@ module.exports = {
                     }
                 }
             },
-            // это будет применяться к файлам `.css`
-            // А ТАКЖЕ к секциям `<style>` внутри файлов `.vue`
             {
                 test: /\.css$/i,
                 use: [
-                    //process.env.NODE_ENV !== 'production' ? 'vue-style-loader' : MiniCssExtractPlugin.loader,
                     MiniCssExtractPlugin.loader,
                     //'vue-style-loader',
                     'css-loader'
@@ -84,7 +78,6 @@ module.exports = {
         ]
     },
     plugins: [
-        new CleanWebpackPlugin(),
         new VueLoaderPlugin(),
         new CopyPlugin([
             { from: 'node_modules/primevue/resources/themes/', to: 'themes/' },
@@ -95,3 +88,7 @@ module.exports = {
         })
     ]
 };
+
+if (!isProduction) {
+    module.exports.plugins[module.exports.plugins.length] = new CleanWebpackPlugin();
+}
