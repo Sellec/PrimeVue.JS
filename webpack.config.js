@@ -7,6 +7,7 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
+// firstly build (isProduction=false) (it would clear all dist), then build (isProduction=true) and publish.
 const isProduction = true;
 
 module.exports = {
