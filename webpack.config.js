@@ -52,7 +52,10 @@ module.exports = {
             },
             {
                 test: /\.m?js$/,
-                exclude: /(node_modules|bower_components)/,
+                exclude: file => (
+                    /node_modules/.test(file) &&
+                    !/\.vue\.js/.test(file)
+                ),
                 use: {
                     loader: 'babel-loader',
                     options: {
