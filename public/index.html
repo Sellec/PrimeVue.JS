@@ -10,11 +10,20 @@
     <script src="quill.min.js"></script>
     <script src="primevuelibrary.js"></script>
     <link rel="stylesheet" href="primevuelibrary.css" />
-    <link rel="stylesheet" href="themes/nova-light/theme.css" />
+    <link rel="stylesheet" href="themes/nova-vue/theme.css" />
 </head>
 <body>
     <div id="app">
         <pvl-tabview>
+            <pvl-tabpanel header="Menu">
+                <pvl-menubar>
+                    <template #end>
+                        <pvl-button label="Вход" icon="pi pi-power-off"></pvl-button>
+                        <img width="30" height="30" class="user-image-header p-button" @click="OnToggleUserMenu" />
+                        <pvl-menu ref="userMenu" :model="userMenuItems" :popup="true" class="main-header-user-menu" />
+                    </template>
+                </pvl-menubar>
+            </pvl-tabpanel>
             <pvl-tabpanel header="Dropdown">
                 <pvl-dropdown value="1" :options="[{val:'1', text:'1'}, {val:'2', text:'2'}]" option-value="val" option-label="text"></pvl-dropdown>
             </pvl-tabpanel>
@@ -29,7 +38,6 @@
             </pvl-tabpanel>
         </pvl-tabview>
     </div>
-
     <script type="text/javascript">
         console.log(PrimeVueLibrary);
         PrimeVueLibrary.registerGlobalTags();
@@ -50,10 +58,43 @@
                     tab1active: true,
                     tab2active: false,
                     tab3visible: false
+                },
+                menu: {
+                    user: {
+                        logged: false,
+                        access: {
+                            controlPanel: false
+                        }
+                    },
+                    urls: {
+                        userSigninUrl: '/url/signin',
+                        userSignoutUrl: '/url/signout',
+                        userProfileUrl: '/url/profile',
+                        userImageUrlTemplate: '/url/image',
+                        controlPanelUrl: '/url/controlPanel'
+                    }
                 }
             },
-            mounted() {
-                console.log(PrimeVueLibrary);
+            computed: {
+                userMenuItems: function () {
+                    console.log("0");
+                    var items = new Array();
+                    if (this.menu.user.logged) {
+                        items[items.length] = { label: 'Личный кабинет', icon: 'pi pi-user', url: this.menu.urls.userProfileUrl };
+                        if (this.menu.user.access.controlPanel) items[items.length] = { label: 'Панель управления', icon: 'pi pi-cog', url: this.menu.urls.controlPanelUrl, target: '_blank' };
+                        items[items.length] = { label: 'Выход', icon: 'pi pi-power-off', url: this.menu.urls.userSignoutUrl };
+                    }
+                    else {
+                        items[items.length] = { label: 'Вход', icon: 'pi pi-power-on', url: this.menu.urls.userSigninUrl };
+                    }
+                    console.log("1", items);
+                    return items;
+                }
+            },
+            methods: {
+                OnToggleUserMenu: function (event) {
+                    this.$refs.userMenu.toggle(event);
+                }
             }
         });
     </script>

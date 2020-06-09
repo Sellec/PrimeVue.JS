@@ -51,7 +51,6 @@ import row from 'primevue/row';
 import selectbutton from 'primevue/selectbutton';
 import sidebar from 'primevue/sidebar';
 import slider from 'primevue/slider';
-import spinner from 'primevue/spinner';
 import splitbutton from 'primevue/splitbutton';
 import steps from 'primevue/steps';
 import tabmenu from 'primevue/tabmenu';
@@ -67,7 +66,6 @@ import tooltip from 'primevue/tooltip';
 import tree from 'primevue/tree';
 import treetable from 'primevue/treetable';
 import tristatecheckbox from 'primevue/tristatecheckbox';
-import validationmessage from 'primevue/validationmessage';
 
 //import 'quill/quill';
 
@@ -126,7 +124,6 @@ var pTagsInternal = {
     'pvl-selectbutton': selectbutton,
     'pvl-sidebar': sidebar,
     'pvl-slider': slider,
-    'pvl-spinner': spinner,
     'pvl-splitbutton': splitbutton,
     'pvl-steps': steps,
     'pvl-tabmenu': tabmenu,
@@ -141,8 +138,7 @@ var pTagsInternal = {
     'pvl-tooltip': tooltip,
     'pvl-tree': tree,
     'pvl-treetable': treetable,
-    'pvl-tristatecheckbox': tristatecheckbox,
-    'pvl-validationmessage': validationmessage
+    'pvl-tristatecheckbox': tristatecheckbox
 };
 
 /*

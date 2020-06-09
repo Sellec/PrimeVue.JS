@@ -1,6 +1,6 @@
 {
   "name": "primevuelibrary",
-  "version": "0.3.0",
+  "version": "0.5.0",
   "description": "A complete bundle with all primevue components, quill and primeicons registered with specific 'pvl-' tags to use in with common html code.",
   "main": "server.js",
   "author": {
@@ -16,8 +16,8 @@
     "url": "https://github.com/Sellec/primevuelibraryjs/issues"
   },
   "dependencies": {
-    "primeicons": "^2.0.0",
-    "primevue": "^1.1.0",
+    "primeicons": "^4.0.0-rc.2",
+    "primevue": "^2.0.0-rc.1",
     "quill": "^1.3.7",
     "vue": "^2.6.11"
   },
