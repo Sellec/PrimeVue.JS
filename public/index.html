@@ -10,24 +10,11 @@
     <script src="quill.min.js"></script>
     <script src="primevuelibrary.js"></script>
     <link rel="stylesheet" href="primevuelibrary.css" />
-    <link rel="stylesheet" href="themes/nova-vue/theme.css" />
+    <link rel="stylesheet" href="themes/mdc-light-indigo/theme.css" />
 </head>
 <body>
     <div id="app">
-        <pvl-tabview>
-            <pvl-tabpanel header="Menu">
-                <pvl-menubar>
-                    <template #end>
-                        <pvl-button label="Вход" icon="pi pi-power-off"></pvl-button>
-                        <img width="30" height="30" class="user-image-header p-button" @click="OnToggleUserMenu" />
-                        <pvl-menu ref="userMenu" :model="userMenuItems" :popup="true" class="main-header-user-menu" />
-                    </template>
-                </pvl-menubar>
-            </pvl-tabpanel>
-            <pvl-tabpanel header="Dropdown">
-                <pvl-dropdown value="1" :options="[{val:'1', text:'1'}, {val:'2', text:'2'}]" option-value="val" option-label="text"></pvl-dropdown>
-            </pvl-tabpanel>
-            <pvl-tabpanel header="TabView">
+
                 Tab 2 activated  <pvl-inputswitch v-model="tabview.tab2active"></pvl-inputswitch><br />
                 Tab 3 visibille <pvl-inputswitch v-model="tabview.tab3visible"></pvl-inputswitch><br />
                 <pvl-tabview>
@@ -35,8 +22,6 @@
                     <pvl-tabpanel header="Tab 2" :active.sync="tabview.tab2active">Tab 2 content</pvl-tabpanel>
                     <pvl-tabpanel header="Tab 3" :hidden="!tabview.tab3visible">Tab 3 content</pvl-tabpanel>
                 </pvl-tabview>
-            </pvl-tabpanel>
-        </pvl-tabview>
     </div>
     <script type="text/javascript">
         console.log(PrimeVueLibrary);

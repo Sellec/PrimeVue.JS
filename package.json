@@ -1,6 +1,6 @@
 {
   "name": "primevuelibrary",
-  "version": "0.6.0",
+  "version": "0.7.0",
   "description": "A complete bundle with all primevue components, quill and primeicons registered with specific 'pvl-' tags to use in with common html code.",
   "main": "server.js",
   "author": {
